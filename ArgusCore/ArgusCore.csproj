@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analyzer.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="DownloadScheduler.cs" />
     <Compile Include="Gatherers\Gatherer.cs" />
     <Compile Include="Gatherers\Reddit\RedditGatherer.cs" />
     <Compile Include="Gatherers\Utils\UtilFacade.cs" />
     <Compile Include="Gatherers\Utils\WebHandler.cs" />
+    <Compile Include="KeywordManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
