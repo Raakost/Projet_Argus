@@ -75,5 +75,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArgusCore\ArgusCore.csproj">
+      <Project>{5a317c79-66d7-4706-8e7d-8a84365940dd}</Project>
+      <Name>ArgusCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArgusEntities\ArgusEntities.csproj">
+      <Project>{e59d051a-8d6d-414d-b941-f7ccbc522134}</Project>
+      <Name>ArgusEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
