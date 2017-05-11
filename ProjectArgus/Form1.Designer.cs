@@ -218,6 +218,7 @@
             this.linkLstview.Size = new System.Drawing.Size(475, 431);
             this.linkLstview.TabIndex = 12;
             this.linkLstview.UseCompatibleStateImageBehavior = false;
+            this.linkLstview.View = System.Windows.Forms.View.Details;
             // 
             // Form1
             // 
