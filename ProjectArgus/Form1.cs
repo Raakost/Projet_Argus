@@ -52,8 +52,9 @@ namespace ProjectArgus
                     string dateStr = FromUnixTime(child.data.created_utc).ToString();
 
                     row.SubItems.Add(dateStr);
-
+                    row.SubItems.Add(child.data.subreddit);
                     linkLstview.Items.Add(row);
+
                 }
 
             }));
