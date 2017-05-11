@@ -9,7 +9,6 @@ namespace ArgusCore
 {
     public class Core
     {
-        private Analyzer analyzer = Analyzer.Instance;
         private RedditGatherer redditG;
         public Core()
         {
