@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace ArgusCore
 {
-    class Analyzer
+    public class Analyzer : IObserver<Object>
     {
+        public void OnCompleted()
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnNext(object value)
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

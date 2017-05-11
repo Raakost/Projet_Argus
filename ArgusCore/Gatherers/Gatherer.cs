@@ -17,6 +17,14 @@ namespace ArgusCore.Gatherers
         {
             observers = new List<IObserver<Object>>();
         }
+        public void Result(Object e)
+        {
+            foreach (var observer in observers)
+            {
+                observer.OnNext(e);
+            }
+        }
+
         public string SerializeJson<T>(T obj)
         {
             using (var ms = new MemoryStream())

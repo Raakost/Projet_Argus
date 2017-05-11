@@ -5,22 +5,50 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace ArgusCore.Gatherers.Reddit
 {
     public class RedditGatherer : Gatherer
     {
+        private List<string> subReddits;
+
+        private System.Threading.Timer timer;
+
         private string redditStr = "https://reddit.com/r/";
         private string jsonSuffix = ".json";
+        
 
         public RedditGatherer()
         {
-            
+            subReddits = new List<string>();
+        }
+
+        public void Start(int sec)
+        {
+            // Start timer
+            if (timer == null)
+            {
+                timer = new System.Threading.Timer(
+                   e => RunStrategy(),
+                   null,
+                   TimeSpan.Zero,
+                   TimeSpan.FromSeconds(sec));
+            }
+        }
+        public void Stop()
+        {
+            // Stop timer
+            timer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+        }
+        private void RunStrategy()
+        {
+            // Run through all subReddits and look for new posts and urls of interest.
+
         }
 
         private void HeadLines(string subreddit, bool getNew)
         {
-
             string fullUrl = redditStr + subreddit + jsonSuffix;
             if (getNew == true)
             {
@@ -28,9 +56,8 @@ namespace ArgusCore.Gatherers.Reddit
             }
             var jsonData = webHandler.DownloadString(fullUrl);
 
-            var data = (ArgusReddit)DeserializeJson<ArgusReddit>(jsonData);            
-
-            //Result(DeserializeJson<dynamic>(jsonData));
+            var data = (ArgusReddit)DeserializeJson<ArgusReddit>(jsonData);
+            Result(data);
         }
     }
 }

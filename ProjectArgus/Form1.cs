@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace ProjectArgus
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IObserver<Object>
     {
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public void OnCompleted()
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnNext(object value)
+        {
+            // Refresh GUI on new result from analyzer.
         }
 
         private void keywordGrp_Enter(object sender, EventArgs e)
