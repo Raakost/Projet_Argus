@@ -29,161 +29,211 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.keywordInputTxt = new System.Windows.Forms.TextBox();
-            this.addBtn = new System.Windows.Forms.Button();
+            this.keyInputTxt = new System.Windows.Forms.TextBox();
+            this.addKeywordBtn = new System.Windows.Forms.Button();
             this.adminGrp = new System.Windows.Forms.GroupBox();
-            this.deleteBtn = new System.Windows.Forms.Button();
+            this.searchlbl = new System.Windows.Forms.Label();
+            this.keySearchTxt = new System.Windows.Forms.TextBox();
+            this.deleteKeywordBtn = new System.Windows.Forms.Button();
             this.keywordLstbox = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.keywordGrp = new System.Windows.Forms.GroupBox();
             this.linkGrp = new System.Windows.Forms.GroupBox();
-            this.linkLstbox = new System.Windows.Forms.ListBox();
-            this.keySearchTxt = new System.Windows.Forms.TextBox();
-            this.linkSearchTxt = new System.Windows.Forms.TextBox();
             this.linkLbl = new System.Windows.Forms.Label();
-            this.searchlbl = new System.Windows.Forms.Label();
+            this.linkSearchTxt = new System.Windows.Forms.TextBox();
+            this.linkLstbox = new System.Windows.Forms.ListBox();
+            this.deleteSubredditBtn = new System.Windows.Forms.Button();
+            this.subredditInputTxt = new System.Windows.Forms.TextBox();
+            this.addSubredditbtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.subredditLstbox = new System.Windows.Forms.ListBox();
             this.adminGrp.SuspendLayout();
-            this.keywordGrp.SuspendLayout();
             this.linkGrp.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 38);
+            this.label1.Location = new System.Drawing.Point(11, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Enter keyword(s)";
+            this.label1.Text = "Enter keyword(s):";
             // 
-            // keywordInputTxt
+            // keyInputTxt
             // 
-            this.keywordInputTxt.Location = new System.Drawing.Point(6, 54);
-            this.keywordInputTxt.Name = "keywordInputTxt";
-            this.keywordInputTxt.Size = new System.Drawing.Size(196, 20);
-            this.keywordInputTxt.TabIndex = 1;
+            this.keyInputTxt.Location = new System.Drawing.Point(8, 44);
+            this.keyInputTxt.Name = "keyInputTxt";
+            this.keyInputTxt.Size = new System.Drawing.Size(196, 20);
+            this.keyInputTxt.TabIndex = 1;
             // 
-            // addBtn
+            // addKeywordBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(6, 80);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(93, 23);
-            this.addBtn.TabIndex = 2;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = true;
+            this.addKeywordBtn.Location = new System.Drawing.Point(8, 70);
+            this.addKeywordBtn.Name = "addKeywordBtn";
+            this.addKeywordBtn.Size = new System.Drawing.Size(93, 23);
+            this.addKeywordBtn.TabIndex = 2;
+            this.addKeywordBtn.Text = "Add";
+            this.addKeywordBtn.UseVisualStyleBackColor = true;
             // 
             // adminGrp
             // 
-            this.adminGrp.Controls.Add(this.deleteBtn);
-            this.adminGrp.Controls.Add(this.keywordInputTxt);
-            this.adminGrp.Controls.Add(this.addBtn);
+            this.adminGrp.Controls.Add(this.searchlbl);
+            this.adminGrp.Controls.Add(this.keySearchTxt);
+            this.adminGrp.Controls.Add(this.deleteKeywordBtn);
+            this.adminGrp.Controls.Add(this.keyInputTxt);
+            this.adminGrp.Controls.Add(this.keywordLstbox);
+            this.adminGrp.Controls.Add(this.addKeywordBtn);
             this.adminGrp.Controls.Add(this.label1);
-            this.adminGrp.Location = new System.Drawing.Point(12, 12);
+            this.adminGrp.Location = new System.Drawing.Point(16, 12);
             this.adminGrp.Name = "adminGrp";
-            this.adminGrp.Size = new System.Drawing.Size(212, 129);
+            this.adminGrp.Size = new System.Drawing.Size(212, 280);
             this.adminGrp.TabIndex = 3;
             this.adminGrp.TabStop = false;
-            this.adminGrp.Text = "Controls";
+            this.adminGrp.Text = "Keyword Controls";
             // 
-            // deleteBtn
+            // searchlbl
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(109, 80);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(93, 23);
-            this.deleteBtn.TabIndex = 3;
-            this.deleteBtn.Text = "Delete";
-            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.searchlbl.AutoSize = true;
+            this.searchlbl.Location = new System.Drawing.Point(11, 110);
+            this.searchlbl.Name = "searchlbl";
+            this.searchlbl.Size = new System.Drawing.Size(103, 13);
+            this.searchlbl.TabIndex = 4;
+            this.searchlbl.Text = "Search in keywords:";
+            // 
+            // keySearchTxt
+            // 
+            this.keySearchTxt.Location = new System.Drawing.Point(8, 126);
+            this.keySearchTxt.Name = "keySearchTxt";
+            this.keySearchTxt.Size = new System.Drawing.Size(196, 20);
+            this.keySearchTxt.TabIndex = 4;
+            // 
+            // deleteKeywordBtn
+            // 
+            this.deleteKeywordBtn.Location = new System.Drawing.Point(111, 70);
+            this.deleteKeywordBtn.Name = "deleteKeywordBtn";
+            this.deleteKeywordBtn.Size = new System.Drawing.Size(93, 23);
+            this.deleteKeywordBtn.TabIndex = 3;
+            this.deleteKeywordBtn.Text = "Delete";
+            this.deleteKeywordBtn.UseVisualStyleBackColor = true;
             // 
             // keywordLstbox
             // 
             this.keywordLstbox.FormattingEnabled = true;
-            this.keywordLstbox.Location = new System.Drawing.Point(6, 76);
+            this.keywordLstbox.Location = new System.Drawing.Point(8, 152);
             this.keywordLstbox.Name = "keywordLstbox";
-            this.keywordLstbox.Size = new System.Drawing.Size(196, 186);
-            this.keywordLstbox.TabIndex = 4;
-            // 
-            // keywordGrp
-            // 
-            this.keywordGrp.Controls.Add(this.searchlbl);
-            this.keywordGrp.Controls.Add(this.keySearchTxt);
-            this.keywordGrp.Controls.Add(this.keywordLstbox);
-            this.keywordGrp.Location = new System.Drawing.Point(12, 147);
-            this.keywordGrp.Name = "keywordGrp";
-            this.keywordGrp.Size = new System.Drawing.Size(212, 273);
-            this.keywordGrp.TabIndex = 5;
-            this.keywordGrp.TabStop = false;
-            this.keywordGrp.Text = "Keywords";
-            this.keywordGrp.Enter += new System.EventHandler(this.keywordGrp_Enter);
+            this.keywordLstbox.Size = new System.Drawing.Size(196, 121);
+            this.keywordLstbox.TabIndex = 5;
             // 
             // linkGrp
             // 
             this.linkGrp.Controls.Add(this.linkLbl);
             this.linkGrp.Controls.Add(this.linkSearchTxt);
             this.linkGrp.Controls.Add(this.linkLstbox);
-            this.linkGrp.Location = new System.Drawing.Point(230, 12);
+            this.linkGrp.Location = new System.Drawing.Point(234, 12);
             this.linkGrp.Name = "linkGrp";
-            this.linkGrp.Size = new System.Drawing.Size(337, 408);
+            this.linkGrp.Size = new System.Drawing.Size(418, 516);
             this.linkGrp.TabIndex = 6;
             this.linkGrp.TabStop = false;
             this.linkGrp.Text = "Reddit";
             // 
-            // linkLstbox
-            // 
-            this.linkLstbox.FormattingEnabled = true;
-            this.linkLstbox.Location = new System.Drawing.Point(7, 80);
-            this.linkLstbox.Name = "linkLstbox";
-            this.linkLstbox.Size = new System.Drawing.Size(321, 316);
-            this.linkLstbox.TabIndex = 0;
-            // 
-            // keySearchTxt
-            // 
-            this.keySearchTxt.Location = new System.Drawing.Point(6, 50);
-            this.keySearchTxt.Name = "keySearchTxt";
-            this.keySearchTxt.Size = new System.Drawing.Size(196, 20);
-            this.keySearchTxt.TabIndex = 5;
-            // 
-            // linkSearchTxt
-            // 
-            this.linkSearchTxt.Location = new System.Drawing.Point(7, 54);
-            this.linkSearchTxt.Name = "linkSearchTxt";
-            this.linkSearchTxt.Size = new System.Drawing.Size(196, 20);
-            this.linkSearchTxt.TabIndex = 2;
-            // 
             // linkLbl
             // 
             this.linkLbl.AutoSize = true;
-            this.linkLbl.Location = new System.Drawing.Point(10, 38);
+            this.linkLbl.Location = new System.Drawing.Point(10, 28);
             this.linkLbl.Name = "linkLbl";
-            this.linkLbl.Size = new System.Drawing.Size(41, 13);
+            this.linkLbl.Size = new System.Drawing.Size(79, 13);
             this.linkLbl.TabIndex = 3;
-            this.linkLbl.Text = "Search";
+            this.linkLbl.Text = "Search in links:";
             // 
-            // searchlbl
+            // linkSearchTxt
             // 
-            this.searchlbl.AutoSize = true;
-            this.searchlbl.Location = new System.Drawing.Point(9, 34);
-            this.searchlbl.Name = "searchlbl";
-            this.searchlbl.Size = new System.Drawing.Size(41, 13);
-            this.searchlbl.TabIndex = 4;
-            this.searchlbl.Text = "Search";
-            this.searchlbl.Click += new System.EventHandler(this.label3_Click);
+            this.linkSearchTxt.Location = new System.Drawing.Point(7, 44);
+            this.linkSearchTxt.Name = "linkSearchTxt";
+            this.linkSearchTxt.Size = new System.Drawing.Size(196, 20);
+            this.linkSearchTxt.TabIndex = 10;
+            // 
+            // linkLstbox
+            // 
+            this.linkLstbox.FormattingEnabled = true;
+            this.linkLstbox.Location = new System.Drawing.Point(7, 73);
+            this.linkLstbox.Name = "linkLstbox";
+            this.linkLstbox.Size = new System.Drawing.Size(405, 433);
+            this.linkLstbox.TabIndex = 11;
+            // 
+            // deleteSubredditBtn
+            // 
+            this.deleteSubredditBtn.Location = new System.Drawing.Point(111, 68);
+            this.deleteSubredditBtn.Name = "deleteSubredditBtn";
+            this.deleteSubredditBtn.Size = new System.Drawing.Size(93, 23);
+            this.deleteSubredditBtn.TabIndex = 8;
+            this.deleteSubredditBtn.Text = "Delete";
+            this.deleteSubredditBtn.UseVisualStyleBackColor = true;
+            // 
+            // subredditInputTxt
+            // 
+            this.subredditInputTxt.Location = new System.Drawing.Point(8, 42);
+            this.subredditInputTxt.Name = "subredditInputTxt";
+            this.subredditInputTxt.Size = new System.Drawing.Size(196, 20);
+            this.subredditInputTxt.TabIndex = 6;
+            // 
+            // addSubredditbtn
+            // 
+            this.addSubredditbtn.Location = new System.Drawing.Point(8, 68);
+            this.addSubredditbtn.Name = "addSubredditbtn";
+            this.addSubredditbtn.Size = new System.Drawing.Size(93, 23);
+            this.addSubredditbtn.TabIndex = 7;
+            this.addSubredditbtn.Text = "Add";
+            this.addSubredditbtn.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Enter subreddit:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.subredditLstbox);
+            this.groupBox1.Controls.Add(this.addSubredditbtn);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.deleteSubredditBtn);
+            this.groupBox1.Controls.Add(this.subredditInputTxt);
+            this.groupBox1.Location = new System.Drawing.Point(16, 298);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(212, 230);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Subreddit Controls";
+            // 
+            // subredditLstbox
+            // 
+            this.subredditLstbox.FormattingEnabled = true;
+            this.subredditLstbox.Location = new System.Drawing.Point(8, 97);
+            this.subredditLstbox.Name = "subredditLstbox";
+            this.subredditLstbox.Size = new System.Drawing.Size(196, 121);
+            this.subredditLstbox.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 444);
+            this.ClientSize = new System.Drawing.Size(668, 545);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.linkGrp);
-            this.Controls.Add(this.keywordGrp);
             this.Controls.Add(this.adminGrp);
             this.Name = "Form1";
             this.Text = "Form1";
             this.adminGrp.ResumeLayout(false);
             this.adminGrp.PerformLayout();
-            this.keywordGrp.ResumeLayout(false);
-            this.keywordGrp.PerformLayout();
             this.linkGrp.ResumeLayout(false);
             this.linkGrp.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -191,19 +241,24 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox keywordInputTxt;
-        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.TextBox keyInputTxt;
+        private System.Windows.Forms.Button addKeywordBtn;
         private System.Windows.Forms.GroupBox adminGrp;
-        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button deleteKeywordBtn;
         private System.Windows.Forms.ListBox keywordLstbox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.GroupBox keywordGrp;
         private System.Windows.Forms.GroupBox linkGrp;
         private System.Windows.Forms.ListBox linkLstbox;
         private System.Windows.Forms.Label searchlbl;
         private System.Windows.Forms.TextBox keySearchTxt;
         private System.Windows.Forms.Label linkLbl;
         private System.Windows.Forms.TextBox linkSearchTxt;
+        private System.Windows.Forms.Button deleteSubredditBtn;
+        private System.Windows.Forms.TextBox subredditInputTxt;
+        private System.Windows.Forms.Button addSubredditbtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox subredditLstbox;
     }
 }
 

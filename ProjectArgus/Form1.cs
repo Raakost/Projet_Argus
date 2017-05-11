@@ -31,15 +31,5 @@ namespace ProjectArgus
         {
             // Refresh GUI on new result from analyzer.
         }
-
-        private void keywordGrp_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
