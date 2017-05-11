@@ -40,13 +40,13 @@
             this.linkGrp = new System.Windows.Forms.GroupBox();
             this.linkLbl = new System.Windows.Forms.Label();
             this.linkSearchTxt = new System.Windows.Forms.TextBox();
-            this.linkLstbox = new System.Windows.Forms.ListBox();
             this.deleteSubredditBtn = new System.Windows.Forms.Button();
             this.subredditInputTxt = new System.Windows.Forms.TextBox();
             this.addSubredditbtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.subredditLstbox = new System.Windows.Forms.ListBox();
+            this.linkLstview = new System.Windows.Forms.ListView();
             this.adminGrp.SuspendLayout();
             this.linkGrp.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -128,12 +128,12 @@
             // 
             // linkGrp
             // 
+            this.linkGrp.Controls.Add(this.linkLstview);
             this.linkGrp.Controls.Add(this.linkLbl);
             this.linkGrp.Controls.Add(this.linkSearchTxt);
-            this.linkGrp.Controls.Add(this.linkLstbox);
             this.linkGrp.Location = new System.Drawing.Point(234, 12);
             this.linkGrp.Name = "linkGrp";
-            this.linkGrp.Size = new System.Drawing.Size(418, 516);
+            this.linkGrp.Size = new System.Drawing.Size(488, 516);
             this.linkGrp.TabIndex = 6;
             this.linkGrp.TabStop = false;
             this.linkGrp.Text = "Reddit";
@@ -153,14 +153,6 @@
             this.linkSearchTxt.Name = "linkSearchTxt";
             this.linkSearchTxt.Size = new System.Drawing.Size(196, 20);
             this.linkSearchTxt.TabIndex = 10;
-            // 
-            // linkLstbox
-            // 
-            this.linkLstbox.FormattingEnabled = true;
-            this.linkLstbox.Location = new System.Drawing.Point(7, 73);
-            this.linkLstbox.Name = "linkLstbox";
-            this.linkLstbox.Size = new System.Drawing.Size(405, 433);
-            this.linkLstbox.TabIndex = 11;
             // 
             // deleteSubredditBtn
             // 
@@ -218,11 +210,20 @@
             this.subredditLstbox.Size = new System.Drawing.Size(196, 121);
             this.subredditLstbox.TabIndex = 9;
             // 
+            // linkLstview
+            // 
+            this.linkLstview.AllowColumnReorder = true;
+            this.linkLstview.Location = new System.Drawing.Point(7, 73);
+            this.linkLstview.Name = "linkLstview";
+            this.linkLstview.Size = new System.Drawing.Size(475, 431);
+            this.linkLstview.TabIndex = 12;
+            this.linkLstview.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 545);
+            this.ClientSize = new System.Drawing.Size(740, 545);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.linkGrp);
             this.Controls.Add(this.adminGrp);
@@ -248,7 +249,6 @@
         private System.Windows.Forms.ListBox keywordLstbox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox linkGrp;
-        private System.Windows.Forms.ListBox linkLstbox;
         private System.Windows.Forms.Label searchlbl;
         private System.Windows.Forms.TextBox keySearchTxt;
         private System.Windows.Forms.Label linkLbl;
@@ -259,6 +259,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox subredditLstbox;
+        private System.Windows.Forms.ListView linkLstview;
     }
 }
 
