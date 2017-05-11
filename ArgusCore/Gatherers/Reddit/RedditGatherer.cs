@@ -11,6 +11,11 @@ namespace ArgusCore.Gatherers.Reddit
 {
     public class RedditGatherer : Gatherer
     {
+        private string coreFolder = @"C:\Argus\";
+        private string subRedditFile = "";
+
+        private DiscOps discOps;
+
         private List<string> subReddits;
         private Analyzer analyzer = Analyzer.Instance;
 
@@ -18,14 +23,37 @@ namespace ArgusCore.Gatherers.Reddit
 
         private string redditStr = "https://reddit.com/r/";
         private string jsonSuffix = ".json";
-        
 
         public RedditGatherer()
         {
-            subReddits = new List<string>();
-            subReddits.Add("worldnews");
-        }
+            discOps = new DiscOps();
 
+            subRedditFile = coreFolder + "SubReddits.json";
+            if (File.Exists(subRedditFile))
+            {
+                subReddits = discOps.LoadFromDisc<List<string>>(subRedditFile);
+            }
+            else
+            {
+                discOps.EnsureFolderExists(coreFolder);
+                subReddits = new List<string>();
+                discOps.SaveToDisc<List<string>>(subReddits, subRedditFile);
+            }
+        }
+        public void AddToList(string subreddit)
+        {
+            subReddits.Add(subreddit);
+            discOps.SaveToDisc<List<string>>(subReddits, subRedditFile);
+        }
+        public List<string> ReadAll()
+        {
+            return subReddits;
+        }
+        public void Delete(string item)
+        {
+            subReddits.Remove(item);
+            discOps.SaveToDisc<List<string>>(subReddits, subRedditFile);
+        }
         public void Start(int sec)
         {
             // Start timer
@@ -52,18 +80,19 @@ namespace ArgusCore.Gatherers.Reddit
         {
             foreach (var subreddit in subReddits)
             {
+                HeadLines(subreddit, false);
                 HeadLines(subreddit, true);
             }
         }
         private void HeadLines(string subreddit, bool getNew)
-        {            
+        {
             string fullUrl = redditStr + subreddit + jsonSuffix;
             if (getNew == true)
             {
                 fullUrl = redditStr + subreddit + "/new/" + jsonSuffix;
             }
             var jsonData = webHandler.DownloadString(fullUrl);
-            
+
             var data = (ArgusReddit)DeserializeJson<ArgusReddit>(jsonData);
             analyzer.EvaluateInterset(data);
         }

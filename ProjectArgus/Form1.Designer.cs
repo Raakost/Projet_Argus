@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.keyInputTxt = new System.Windows.Forms.TextBox();
+            this.txtKeywordInput = new System.Windows.Forms.TextBox();
             this.addKeywordBtn = new System.Windows.Forms.Button();
             this.adminGrp = new System.Windows.Forms.GroupBox();
             this.searchlbl = new System.Windows.Forms.Label();
-            this.keySearchTxt = new System.Windows.Forms.TextBox();
+            this.txtKeywordSearch = new System.Windows.Forms.TextBox();
             this.deleteKeywordBtn = new System.Windows.Forms.Button();
             this.keywordLstbox = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -41,15 +41,15 @@
             this.linkLstview = new System.Windows.Forms.ListView();
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.subreddit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.linkLbl = new System.Windows.Forms.Label();
             this.linkSearchTxt = new System.Windows.Forms.TextBox();
             this.deleteSubredditBtn = new System.Windows.Forms.Button();
-            this.subredditInputTxt = new System.Windows.Forms.TextBox();
+            this.txtSubredditInput = new System.Windows.Forms.TextBox();
             this.addSubredditbtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.subredditLstbox = new System.Windows.Forms.ListBox();
-            this.subreddit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.adminGrp.SuspendLayout();
             this.linkGrp.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -64,12 +64,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter keyword:";
             // 
-            // keyInputTxt
+            // txtKeywordInput
             // 
-            this.keyInputTxt.Location = new System.Drawing.Point(8, 44);
-            this.keyInputTxt.Name = "keyInputTxt";
-            this.keyInputTxt.Size = new System.Drawing.Size(196, 20);
-            this.keyInputTxt.TabIndex = 1;
+            this.txtKeywordInput.Location = new System.Drawing.Point(8, 44);
+            this.txtKeywordInput.Name = "txtKeywordInput";
+            this.txtKeywordInput.Size = new System.Drawing.Size(196, 20);
+            this.txtKeywordInput.TabIndex = 1;
             // 
             // addKeywordBtn
             // 
@@ -79,13 +79,14 @@
             this.addKeywordBtn.TabIndex = 2;
             this.addKeywordBtn.Text = "Add";
             this.addKeywordBtn.UseVisualStyleBackColor = true;
+            this.addKeywordBtn.Click += new System.EventHandler(this.addKeywordBtn_Click);
             // 
             // adminGrp
             // 
             this.adminGrp.Controls.Add(this.searchlbl);
-            this.adminGrp.Controls.Add(this.keySearchTxt);
+            this.adminGrp.Controls.Add(this.txtKeywordSearch);
             this.adminGrp.Controls.Add(this.deleteKeywordBtn);
-            this.adminGrp.Controls.Add(this.keyInputTxt);
+            this.adminGrp.Controls.Add(this.txtKeywordInput);
             this.adminGrp.Controls.Add(this.keywordLstbox);
             this.adminGrp.Controls.Add(this.addKeywordBtn);
             this.adminGrp.Controls.Add(this.label1);
@@ -105,12 +106,12 @@
             this.searchlbl.TabIndex = 4;
             this.searchlbl.Text = "Search in keywords:";
             // 
-            // keySearchTxt
+            // txtKeywordSearch
             // 
-            this.keySearchTxt.Location = new System.Drawing.Point(8, 126);
-            this.keySearchTxt.Name = "keySearchTxt";
-            this.keySearchTxt.Size = new System.Drawing.Size(196, 20);
-            this.keySearchTxt.TabIndex = 4;
+            this.txtKeywordSearch.Location = new System.Drawing.Point(8, 126);
+            this.txtKeywordSearch.Name = "txtKeywordSearch";
+            this.txtKeywordSearch.Size = new System.Drawing.Size(196, 20);
+            this.txtKeywordSearch.TabIndex = 4;
             // 
             // deleteKeywordBtn
             // 
@@ -120,6 +121,7 @@
             this.deleteKeywordBtn.TabIndex = 3;
             this.deleteKeywordBtn.Text = "Delete";
             this.deleteKeywordBtn.UseVisualStyleBackColor = true;
+            this.deleteKeywordBtn.Click += new System.EventHandler(this.deleteKeywordBtn_Click);
             // 
             // keywordLstbox
             // 
@@ -166,6 +168,11 @@
             this.date.Text = "Date";
             this.date.Width = 143;
             // 
+            // subreddit
+            // 
+            this.subreddit.Text = "Subreddit";
+            this.subreddit.Width = 200;
+            // 
             // linkLbl
             // 
             this.linkLbl.AutoSize = true;
@@ -190,13 +197,14 @@
             this.deleteSubredditBtn.TabIndex = 8;
             this.deleteSubredditBtn.Text = "Delete";
             this.deleteSubredditBtn.UseVisualStyleBackColor = true;
+            this.deleteSubredditBtn.Click += new System.EventHandler(this.deleteSubredditBtn_Click);
             // 
-            // subredditInputTxt
+            // txtSubredditInput
             // 
-            this.subredditInputTxt.Location = new System.Drawing.Point(8, 42);
-            this.subredditInputTxt.Name = "subredditInputTxt";
-            this.subredditInputTxt.Size = new System.Drawing.Size(196, 20);
-            this.subredditInputTxt.TabIndex = 6;
+            this.txtSubredditInput.Location = new System.Drawing.Point(8, 42);
+            this.txtSubredditInput.Name = "txtSubredditInput";
+            this.txtSubredditInput.Size = new System.Drawing.Size(196, 20);
+            this.txtSubredditInput.TabIndex = 6;
             // 
             // addSubredditbtn
             // 
@@ -206,6 +214,7 @@
             this.addSubredditbtn.TabIndex = 7;
             this.addSubredditbtn.Text = "Add";
             this.addSubredditbtn.UseVisualStyleBackColor = true;
+            this.addSubredditbtn.Click += new System.EventHandler(this.addSubredditbtn_Click);
             // 
             // label2
             // 
@@ -222,7 +231,7 @@
             this.groupBox1.Controls.Add(this.addSubredditbtn);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.deleteSubredditBtn);
-            this.groupBox1.Controls.Add(this.subredditInputTxt);
+            this.groupBox1.Controls.Add(this.txtSubredditInput);
             this.groupBox1.Location = new System.Drawing.Point(16, 298);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(212, 230);
@@ -238,11 +247,6 @@
             this.subredditLstbox.Size = new System.Drawing.Size(196, 121);
             this.subredditLstbox.TabIndex = 9;
             // 
-            // subreddit
-            // 
-            this.subreddit.Text = "Subreddit";
-            this.subreddit.Width = 200;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,7 +256,7 @@
             this.Controls.Add(this.linkGrp);
             this.Controls.Add(this.adminGrp);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Project Argus";
             this.adminGrp.ResumeLayout(false);
             this.adminGrp.PerformLayout();
             this.linkGrp.ResumeLayout(false);
@@ -266,7 +270,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox keyInputTxt;
+        private System.Windows.Forms.TextBox txtKeywordInput;
         private System.Windows.Forms.Button addKeywordBtn;
         private System.Windows.Forms.GroupBox adminGrp;
         private System.Windows.Forms.Button deleteKeywordBtn;
@@ -274,11 +278,11 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox linkGrp;
         private System.Windows.Forms.Label searchlbl;
-        private System.Windows.Forms.TextBox keySearchTxt;
+        private System.Windows.Forms.TextBox txtKeywordSearch;
         private System.Windows.Forms.Label linkLbl;
         private System.Windows.Forms.TextBox linkSearchTxt;
         private System.Windows.Forms.Button deleteSubredditBtn;
-        private System.Windows.Forms.TextBox subredditInputTxt;
+        private System.Windows.Forms.TextBox txtSubredditInput;
         private System.Windows.Forms.Button addSubredditbtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;

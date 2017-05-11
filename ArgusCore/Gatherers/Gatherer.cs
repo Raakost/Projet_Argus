@@ -10,12 +10,9 @@ using System.Threading.Tasks;
 namespace ArgusCore.Gatherers
 {
     public abstract class Gatherer : UtilFacade
-    {
-        private List<IObserver<Object>> observers;
-        
+    {        
         public Gatherer()
         {
-            observers = new List<IObserver<Object>>();
         }
         
         public string SerializeJson<T>(T obj)

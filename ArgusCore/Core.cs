@@ -9,15 +9,15 @@ namespace ArgusCore
 {
     public class Core
     {
-        private RedditGatherer redditG;
+        public RedditGatherer redditGatherer;
         public Core()
         {
-            redditG = new RedditGatherer();
+            redditGatherer = new RedditGatherer();
         }
 
         public void Start()
         {
-            redditG.Start(5 * 60);
+            redditGatherer.Start(2 * 60);
             
         }
     }

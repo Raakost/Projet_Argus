@@ -9,8 +9,10 @@ namespace ArgusCore
 {
     public class Analyzer : IObservable<Object>
     {
-        private List<IObserver<Object>> observers;
-        private List<string> Keywords;
+        private List<IObserver<Object>> observers = new List<IObserver<Object>>();
+        private KeywordManager keywordMgr;
+
+        List<ArgusChild> childrenFound;
 
         private static readonly Analyzer instance = new Analyzer();
 
@@ -20,17 +22,8 @@ namespace ArgusCore
         }
         private Analyzer()
         {
-            // Load Keywords
-            //Keywords = keyWordMgr.LoadKeyWords();
-            observers = new List<IObserver<Object>>();
-            Keywords = new List<string>();
-            Keywords.Add("leak");
-            Keywords.Add("shooting");
-            Keywords.Add("killed");
-            Keywords.Add("injured");
-            Keywords.Add("airstrike");
-            Keywords.Add("suicide");
-            Keywords.Add("battle");
+            childrenFound = new List<ArgusChild>();
+            keywordMgr = KeywordManager.Instance;
         }
         public static Analyzer Instance
         {
@@ -47,10 +40,16 @@ namespace ArgusCore
             {
                 if (EvaluateString(child.data.title))
                 {
-                    InterestPoints.Add(child);
+                    // Is it already in our list?
+                    bool containsItem = childrenFound.Any(item => item.data.id == child.data.id);
+                    if (!containsItem)
+                    {
+                        childrenFound.Add(child);
+                        InterestPoints.Add(child);
+                    }
                 }
             }
-            if(InterestPoints.Count > 0)
+            if (InterestPoints.Count > 0)
             {
                 Result(InterestPoints);
             }
@@ -60,12 +59,12 @@ namespace ArgusCore
         {
             bool result = false;
 
-            foreach (var keyword in Keywords)
+            foreach (var keyword in keywordMgr.ReadAll())
             {
                 if (input.ToLower().Contains(keyword))
                 {
                     return true;
-                }                
+                }
             }
             return result;
         }
