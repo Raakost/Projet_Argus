@@ -71,7 +71,7 @@ namespace ProjectArgus
             keywordLstbox.DataSource = keywordMgr.ReadAll();
 
             subredditLstbox.DataSource = null;
-            subredditLstbox.DataSource = core.redditGatherer.ReadAll();
+            subredditLstbox.DataSource = core.redditGatherer.ReadAllSubReddits();
         }
         private void addKeywordBtn_Click(object sender, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace ProjectArgus
         {
             if (txtSubredditInput.Text != "")
             {
-                core.redditGatherer.AddToList(txtSubredditInput.Text);
+                core.redditGatherer.AddSubReddit(txtSubredditInput.Text);
             }
             txtSubredditInput.Text = "";
             RefreshLists();
@@ -105,7 +105,7 @@ namespace ProjectArgus
         {
             // Selected index from list?
             var selectedSubreddit = subredditLstbox.SelectedItem as string;
-            core.redditGatherer.Delete(selectedSubreddit);
+            core.redditGatherer.DeleteSubreddit(selectedSubreddit);
             txtSubredditInput.Text = "";
             RefreshLists();
         }

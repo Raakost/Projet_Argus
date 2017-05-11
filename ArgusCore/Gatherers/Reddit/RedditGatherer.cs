@@ -19,7 +19,7 @@ namespace ArgusCore.Gatherers.Reddit
         private List<string> subReddits;
         private Analyzer analyzer = Analyzer.Instance;
 
-        private System.Threading.Timer timer;
+
 
         private string redditStr = "https://reddit.com/r/";
         private string jsonSuffix = ".json";
@@ -40,44 +40,23 @@ namespace ArgusCore.Gatherers.Reddit
                 discOps.SaveToDisc<List<string>>(subReddits, subRedditFile);
             }
         }
-        public void AddToList(string subreddit)
+        public void AddSubReddit(string subreddit)
         {
             subReddits.Add(subreddit);
             discOps.SaveToDisc<List<string>>(subReddits, subRedditFile);
         }
-        public List<string> ReadAll()
+        public List<string> ReadAllSubReddits()
         {
             return subReddits;
         }
-        public void Delete(string item)
+        public void DeleteSubreddit(string item)
         {
             subReddits.Remove(item);
             discOps.SaveToDisc<List<string>>(subReddits, subRedditFile);
         }
-        public void Start(int sec)
-        {
-            // Start timer
-            if (timer == null)
-            {
-                timer = new System.Threading.Timer(
-                   e => RunStrategy(),
-                   null,
-                   TimeSpan.Zero,
-                   TimeSpan.FromSeconds(sec));
-            }
-        }
-        public void Stop()
-        {
-            // Stop timer
-            timer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-        }
-        private void RunStrategy()
+        public override void RunStrategy()
         {
             // Run through all subReddits and look for new posts and urls of interest.
-            ReallAllSubreddit();
-        }
-        private void ReallAllSubreddit()
-        {
             foreach (var subreddit in subReddits)
             {
                 HeadLines(subreddit, false);

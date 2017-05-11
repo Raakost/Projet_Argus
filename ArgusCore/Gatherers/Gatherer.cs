@@ -10,11 +10,29 @@ using System.Threading.Tasks;
 namespace ArgusCore.Gatherers
 {
     public abstract class Gatherer : UtilFacade
-    {        
+    {
+        private System.Threading.Timer timer;
         public Gatherer()
         {
         }
-        
+        public abstract void RunStrategy();
+        public void Start(int sec)
+        {
+            // Start timer
+            if (timer == null)
+            {
+                timer = new System.Threading.Timer(
+                   e => RunStrategy(),
+                   null,
+                   TimeSpan.Zero,
+                   TimeSpan.FromSeconds(sec));
+            }
+        }
+        public void Stop()
+        {
+            // Stop timer
+            timer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+        }
         public string SerializeJson<T>(T obj)
         {
             using (var ms = new MemoryStream())
