@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Analyzer.cs" />
     <Compile Include="Core.cs" />
-    <Compile Include="DownloadScheduler.cs" />
     <Compile Include="Gatherers\Gatherer.cs" />
     <Compile Include="Gatherers\Reddit\RedditGatherer.cs" />
     <Compile Include="Gatherers\Utils\UtilFacade.cs" />
