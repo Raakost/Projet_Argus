@@ -19,8 +19,6 @@ namespace ArgusCore.Gatherers.Reddit
         private List<string> subReddits;
         private Analyzer analyzer = Analyzer.Instance;
 
-
-
         private string redditStr = "https://reddit.com/r/";
         private string jsonSuffix = ".json";
 
