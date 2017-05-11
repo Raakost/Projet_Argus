@@ -38,6 +38,7 @@
             this.keywordLstbox = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.linkGrp = new System.Windows.Forms.GroupBox();
+            this.linkLstview = new System.Windows.Forms.ListView();
             this.linkLbl = new System.Windows.Forms.Label();
             this.linkSearchTxt = new System.Windows.Forms.TextBox();
             this.deleteSubredditBtn = new System.Windows.Forms.Button();
@@ -46,7 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.subredditLstbox = new System.Windows.Forms.ListBox();
-            this.linkLstview = new System.Windows.Forms.ListView();
+            this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.adminGrp.SuspendLayout();
             this.linkGrp.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -138,6 +140,19 @@
             this.linkGrp.TabStop = false;
             this.linkGrp.Text = "Reddit";
             // 
+            // linkLstview
+            // 
+            this.linkLstview.AllowColumnReorder = true;
+            this.linkLstview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.title,
+            this.date});
+            this.linkLstview.Location = new System.Drawing.Point(7, 73);
+            this.linkLstview.Name = "linkLstview";
+            this.linkLstview.Size = new System.Drawing.Size(475, 431);
+            this.linkLstview.TabIndex = 12;
+            this.linkLstview.UseCompatibleStateImageBehavior = false;
+            this.linkLstview.View = System.Windows.Forms.View.Details;
+            // 
             // linkLbl
             // 
             this.linkLbl.AutoSize = true;
@@ -210,15 +225,15 @@
             this.subredditLstbox.Size = new System.Drawing.Size(196, 121);
             this.subredditLstbox.TabIndex = 9;
             // 
-            // linkLstview
+            // title
             // 
-            this.linkLstview.AllowColumnReorder = true;
-            this.linkLstview.Location = new System.Drawing.Point(7, 73);
-            this.linkLstview.Name = "linkLstview";
-            this.linkLstview.Size = new System.Drawing.Size(475, 431);
-            this.linkLstview.TabIndex = 12;
-            this.linkLstview.UseCompatibleStateImageBehavior = false;
-            this.linkLstview.View = System.Windows.Forms.View.Details;
+            this.title.Text = "Title";
+            this.title.Width = 230;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 200;
             // 
             // Form1
             // 
@@ -261,6 +276,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox subredditLstbox;
         private System.Windows.Forms.ListView linkLstview;
+        private System.Windows.Forms.ColumnHeader title;
+        private System.Windows.Forms.ColumnHeader date;
     }
 }
 

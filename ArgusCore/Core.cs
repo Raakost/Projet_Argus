@@ -9,18 +9,17 @@ namespace ArgusCore
 {
     public class Core
     {
-        private Analyzer analyzer;
+        private Analyzer analyzer = Analyzer.Instance;
         private RedditGatherer redditG;
         public Core()
         {
-            analyzer = new Analyzer();
             redditG = new RedditGatherer();
-            redditG.Subscribe(analyzer);
         }
 
         public void Start()
         {
-            redditG.Start(5*60);
+            redditG.Start(5 * 60);
+            
         }
     }
 }

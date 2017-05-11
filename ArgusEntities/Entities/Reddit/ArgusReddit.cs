@@ -46,7 +46,7 @@ namespace ArgusEntities.Entities.Reddit
     {
     }
 
-    public class Data2
+    public class ArgusData2
     {
         public bool contest_mode { get; set; }
         public object banned_by { get; set; }
@@ -106,16 +106,16 @@ namespace ArgusEntities.Entities.Reddit
         public int ups { get; set; }
     }
 
-    public class Child
+    public class ArgusChild
     {
         public string kind { get; set; }
-        public Data2 data { get; set; }
+        public ArgusData2 data { get; set; }
     }
 
-    public class Data
+    public class ArgusData
     {
         public string modhash { get; set; }
-        public List<Child> children { get; set; }
+        public List<ArgusChild> children { get; set; }
         public string after { get; set; }
         public object before { get; set; }
     }
@@ -123,7 +123,7 @@ namespace ArgusEntities.Entities.Reddit
     public class ArgusReddit
     {
         public string kind { get; set; }
-        public Data data { get; set; }
+        public ArgusData data { get; set; }
     }
 
 }

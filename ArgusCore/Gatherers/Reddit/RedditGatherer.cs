@@ -12,6 +12,7 @@ namespace ArgusCore.Gatherers.Reddit
     public class RedditGatherer : Gatherer
     {
         private List<string> subReddits;
+        private Analyzer analyzer = Analyzer.Instance;
 
         private System.Threading.Timer timer;
 
@@ -22,6 +23,7 @@ namespace ArgusCore.Gatherers.Reddit
         public RedditGatherer()
         {
             subReddits = new List<string>();
+            subReddits.Add("worldnews");
         }
 
         public void Start(int sec)
@@ -44,20 +46,26 @@ namespace ArgusCore.Gatherers.Reddit
         private void RunStrategy()
         {
             // Run through all subReddits and look for new posts and urls of interest.
-
+            ReallAllSubreddit();
         }
-
-        private void HeadLines(string subreddit, bool getNew)
+        private void ReallAllSubreddit()
         {
+            foreach (var subreddit in subReddits)
+            {
+                HeadLines(subreddit, true);
+            }
+        }
+        private void HeadLines(string subreddit, bool getNew)
+        {            
             string fullUrl = redditStr + subreddit + jsonSuffix;
             if (getNew == true)
             {
                 fullUrl = redditStr + subreddit + "/new/" + jsonSuffix;
             }
             var jsonData = webHandler.DownloadString(fullUrl);
-
+            
             var data = (ArgusReddit)DeserializeJson<ArgusReddit>(jsonData);
-            Result(data);
+            analyzer.EvaluateInterset(data);
         }
     }
 }

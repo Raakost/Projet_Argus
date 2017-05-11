@@ -9,22 +9,15 @@ using System.Threading.Tasks;
 
 namespace ArgusCore.Gatherers
 {
-    public abstract class Gatherer : UtilFacade, IObservable<Object>
+    public abstract class Gatherer : UtilFacade
     {
         private List<IObserver<Object>> observers;
-
+        
         public Gatherer()
         {
             observers = new List<IObserver<Object>>();
         }
-        public void Result(Object e)
-        {
-            foreach (var observer in observers)
-            {
-                observer.OnNext(e);
-            }
-        }
-
+        
         public string SerializeJson<T>(T obj)
         {
             using (var ms = new MemoryStream())
@@ -45,31 +38,6 @@ namespace ArgusCore.Gatherers
                 return obj;
             }
 
-        }
-        public IDisposable Subscribe(IObserver<object> observer)
-        {
-            if (!observers.Contains(observer))
-            {
-                observers.Add(observer);
-            }
-            return new Unsubscriber<Object>(observers, observer);
-        }
-    }
-    internal class Unsubscriber<Object> : IDisposable
-    {
-        private List<IObserver<Object>> _observers;
-        private IObserver<Object> _observer;
-
-        internal Unsubscriber(List<IObserver<Object>> observers, IObserver<Object> observer)
-        {
-            this._observers = observers;
-            this._observer = observer;
-        }
-
-        public void Dispose()
-        {
-            if (_observers.Contains(_observer))
-                _observers.Remove(_observer);
         }
     }
 }
