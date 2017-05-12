@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArgusCore
+namespace ArgusCore.Gatherers.Utils
 {
     public class DiscOps
     {
