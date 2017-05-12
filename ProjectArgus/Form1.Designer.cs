@@ -152,11 +152,13 @@
             this.date,
             this.subreddit});
             this.linkLstview.Location = new System.Drawing.Point(7, 73);
+            this.linkLstview.MultiSelect = false;
             this.linkLstview.Name = "linkLstview";
             this.linkLstview.Size = new System.Drawing.Size(747, 431);
             this.linkLstview.TabIndex = 12;
             this.linkLstview.UseCompatibleStateImageBehavior = false;
             this.linkLstview.View = System.Windows.Forms.View.Details;
+            this.linkLstview.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.linkLstview_MouseDoubleClick);
             // 
             // title
             // 

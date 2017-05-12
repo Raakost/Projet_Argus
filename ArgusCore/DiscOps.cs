@@ -35,9 +35,6 @@ namespace ArgusCore
             }
             catch (SerializationException)
             {
-                //string sourceFile = Path.Combine(coreFolder, file);
-                //string destinationFile = Path.Combine(coreFolder, "Faulty", file);
-                //File.Move(sourceFile, destinationFile);
                 return obj;
             }
         }

@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstChildren = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lstChildren
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 0;
+            this.lstChildren.FormattingEnabled = true;
+            this.lstChildren.Location = new System.Drawing.Point(12, 8);
+            this.lstChildren.Name = "lstChildren";
+            this.lstChildren.Size = new System.Drawing.Size(260, 511);
+            this.lstChildren.TabIndex = 0;
             // 
             // PopupBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 531);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstChildren);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PopupBox";
@@ -55,6 +55,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstChildren;
     }
 }

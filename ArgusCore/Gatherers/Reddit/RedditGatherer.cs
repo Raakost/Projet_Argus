@@ -68,10 +68,29 @@ namespace ArgusCore.Gatherers.Reddit
             {
                 fullUrl = redditStr + subreddit + "/new/" + jsonSuffix;
             }
-            var jsonData = webHandler.DownloadString(fullUrl);
+            analyzer.EvaluateInterset(GetRedditData(fullUrl));
+        }
+        private ArgusReddit GetRedditData(string url)
+        {
+            var jsonData = webHandler.DownloadString(url);
 
             var data = (ArgusReddit)DeserializeJson<ArgusReddit>(jsonData);
-            analyzer.EvaluateInterset(data);
+            return data;
+        }
+        public bool IsSubredditValid(string subreddit)
+        {
+            string fullUrl = redditStr + subreddit +jsonSuffix;
+
+            var data = GetRedditData(fullUrl);
+
+            if (data.data.children.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

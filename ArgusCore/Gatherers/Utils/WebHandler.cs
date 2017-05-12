@@ -50,7 +50,7 @@ namespace ArgusCore.Gatherers.Utils
                             else if (tryCount >= maxTryCount)
                             {
                                 tryCount = 0;
-                                return data;
+                                throw new WebException();
                             }
                         }
                     }

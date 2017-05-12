@@ -17,8 +17,7 @@ namespace ArgusCore
 
         public void Start()
         {
-            redditGatherer.Start(2 * 60);
-            
+            redditGatherer.Start(2 * 60);            
         }
     }
 }

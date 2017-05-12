@@ -25,6 +25,13 @@ namespace ArgusCore
             childrenFound = new List<ArgusChild>();
             keywordMgr = KeywordManager.Instance;
         }
+
+        public ArgusChild GetChildByTitle(string title)
+        {
+            ArgusChild selectedChild = childrenFound.Where(x => x.data.title == title).FirstOrDefault();
+            return selectedChild;
+        }
+
         public static Analyzer Instance
         {
             get
@@ -32,7 +39,6 @@ namespace ArgusCore
                 return instance;
             }
         }
-
         public void EvaluateInterset(ArgusReddit input)
         {
             List<ArgusChild> InterestPoints = new List<ArgusChild>();

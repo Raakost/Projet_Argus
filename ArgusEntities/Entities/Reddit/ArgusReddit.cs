@@ -110,6 +110,10 @@ namespace ArgusEntities.Entities.Reddit
     {
         public string kind { get; set; }
         public ArgusData2 data { get; set; }
+        public override string ToString()
+        {
+            return data.title;
+        }
     }
 
     public class ArgusData
