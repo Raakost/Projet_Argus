@@ -60,7 +60,7 @@ namespace ProjectArgus
             // Refresh GUI on new result from analyzer.
             RefreshResultList((List<ArgusChild>)value);
             // Call popupDialog and show latest results.
-            popBox.DisplayResults((List<ArgusChild>)value);
+            //popBox.DisplayResults((List<ArgusChild>)value);
         }
 
 
@@ -161,6 +161,31 @@ namespace ProjectArgus
         private void GotoThread(string threadUrl)
         {
             System.Diagnostics.Process.Start(threadUrl);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                notifyIcon1.Visible = true;
+                this.Hide();
+            }
+
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
         }
     }
 }

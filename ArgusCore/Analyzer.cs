@@ -39,19 +39,22 @@ namespace ArgusCore
                 return instance;
             }
         }
-        public void EvaluateInterset(ArgusReddit input)
+        public void EvaluateInterset(List<ArgusReddit> input)
         {
             List<ArgusChild> InterestPoints = new List<ArgusChild>();
-            foreach (var child in input.data.children)
+            foreach (var subreddit in input)
             {
-                if (EvaluateString(child.data.title))
+                foreach (var child in subreddit.data.children)
                 {
-                    // Is it already in our list?
-                    bool containsItem = childrenFound.Any(item => item.data.id == child.data.id);
-                    if (!containsItem)
+                    if (EvaluateString(child.data.title))
                     {
-                        childrenFound.Add(child);
-                        InterestPoints.Add(child);
+                        // Is it already in our list?
+                        bool containsItem = childrenFound.Any(item => item.data.id == child.data.id);
+                        if (!containsItem)
+                        {
+                            childrenFound.Add(child);
+                            InterestPoints.Add(child);
+                        }
                     }
                 }
             }

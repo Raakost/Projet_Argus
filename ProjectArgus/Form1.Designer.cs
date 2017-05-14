@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.txtKeywordInput = new System.Windows.Forms.TextBox();
             this.addKeywordBtn = new System.Windows.Forms.Button();
@@ -50,6 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.subredditLstbox = new System.Windows.Forms.ListBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.adminGrp.SuspendLayout();
             this.linkGrp.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -249,6 +252,13 @@
             this.subredditLstbox.Size = new System.Drawing.Size(196, 121);
             this.subredditLstbox.TabIndex = 9;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,8 +267,13 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.linkGrp);
             this.Controls.Add(this.adminGrp);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Project Argus";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.adminGrp.ResumeLayout(false);
             this.adminGrp.PerformLayout();
             this.linkGrp.ResumeLayout(false);
@@ -293,6 +308,7 @@
         private System.Windows.Forms.ColumnHeader title;
         private System.Windows.Forms.ColumnHeader date;
         private System.Windows.Forms.ColumnHeader subreddit;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

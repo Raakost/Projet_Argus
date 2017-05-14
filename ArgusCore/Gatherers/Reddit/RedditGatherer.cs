@@ -53,21 +53,31 @@ namespace ArgusCore.Gatherers.Reddit
         }
         public override void RunStrategy()
         {
+            List<ArgusReddit> dataFound = new List<ArgusReddit>();
             // Run through all subReddits and look for new posts and urls of interest.
             foreach (var subreddit in subReddits)
             {
-                HeadLines(subreddit, false);
-                HeadLines(subreddit, true);
+                var featuredPosts = GetSubredditPosts(subreddit, false);
+                if(featuredPosts != null)
+                {
+                    dataFound.Add(featuredPosts);
+                }
+                var latestPosts = GetSubredditPosts(subreddit, true);
+                if(latestPosts != null)
+                {
+                    dataFound.Add(latestPosts);
+                }
             }
+            analyzer.EvaluateInterset(dataFound);
         }
-        private void HeadLines(string subreddit, bool getNew)
+        private ArgusReddit GetSubredditPosts(string subreddit, bool getNew)
         {
             string fullUrl = redditStr + subreddit + jsonSuffix;
             if (getNew == true)
             {
                 fullUrl = redditStr + subreddit + "/new/" + jsonSuffix;
             }
-            analyzer.EvaluateInterset(GetRedditData(fullUrl));
+            return GetRedditData(fullUrl);
         }
         private ArgusReddit GetRedditData(string url)
         {
@@ -78,7 +88,7 @@ namespace ArgusCore.Gatherers.Reddit
         }
         public bool IsSubredditValid(string subreddit)
         {
-            string fullUrl = redditStr + subreddit +jsonSuffix;
+            string fullUrl = redditStr + subreddit + jsonSuffix;
 
             var data = GetRedditData(fullUrl);
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopupBox));
             this.lstChildren = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -45,10 +46,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 531);
             this.Controls.Add(this.lstChildren);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PopupBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PopupBox";
+            this.Resize += new System.EventHandler(this.PopupBox_Resize);
             this.ResumeLayout(false);
 
         }

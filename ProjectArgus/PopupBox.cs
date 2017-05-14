@@ -25,7 +25,6 @@ namespace ProjectArgus
             ReopenForm();
             lstChildren.Invoke(new Action(() =>
             {
-
                 lstChildren.DataSource = input;
             }));
 
@@ -55,12 +54,19 @@ namespace ProjectArgus
 
         private void ReopenForm()
         {
-            if (!this.Visible)
-            {
-                this.Show();
-            }
-            //Update form information
+            this.Show();
+            //if (!this.Visible)
+            //{
 
+            //}
+            //Update form information
+        }
+        private void PopupBox_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                this.Hide();
+            }
         }
     }
 }
