@@ -21,10 +21,11 @@ namespace ProjectArgus
 
         public void DisplayResults(List<ArgusChild> input)
         {
-            lstChildren.DataSource = null;
+
             ReopenForm();
             lstChildren.Invoke(new Action(() =>
             {
+                lstChildren.DataSource = null;
                 lstChildren.DataSource = input;
             }));
 

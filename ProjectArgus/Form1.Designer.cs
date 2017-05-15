@@ -34,8 +34,6 @@
             this.txtKeywordInput = new System.Windows.Forms.TextBox();
             this.addKeywordBtn = new System.Windows.Forms.Button();
             this.adminGrp = new System.Windows.Forms.GroupBox();
-            this.searchlbl = new System.Windows.Forms.Label();
-            this.txtKeywordSearch = new System.Windows.Forms.TextBox();
             this.deleteKeywordBtn = new System.Windows.Forms.Button();
             this.keywordLstbox = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -86,8 +84,6 @@
             // 
             // adminGrp
             // 
-            this.adminGrp.Controls.Add(this.searchlbl);
-            this.adminGrp.Controls.Add(this.txtKeywordSearch);
             this.adminGrp.Controls.Add(this.deleteKeywordBtn);
             this.adminGrp.Controls.Add(this.txtKeywordInput);
             this.adminGrp.Controls.Add(this.keywordLstbox);
@@ -99,22 +95,6 @@
             this.adminGrp.TabIndex = 3;
             this.adminGrp.TabStop = false;
             this.adminGrp.Text = "Keyword Controls";
-            // 
-            // searchlbl
-            // 
-            this.searchlbl.AutoSize = true;
-            this.searchlbl.Location = new System.Drawing.Point(11, 110);
-            this.searchlbl.Name = "searchlbl";
-            this.searchlbl.Size = new System.Drawing.Size(103, 13);
-            this.searchlbl.TabIndex = 4;
-            this.searchlbl.Text = "Search in keywords:";
-            // 
-            // txtKeywordSearch
-            // 
-            this.txtKeywordSearch.Location = new System.Drawing.Point(8, 126);
-            this.txtKeywordSearch.Name = "txtKeywordSearch";
-            this.txtKeywordSearch.Size = new System.Drawing.Size(196, 20);
-            this.txtKeywordSearch.TabIndex = 4;
             // 
             // deleteKeywordBtn
             // 
@@ -129,9 +109,9 @@
             // keywordLstbox
             // 
             this.keywordLstbox.FormattingEnabled = true;
-            this.keywordLstbox.Location = new System.Drawing.Point(8, 152);
+            this.keywordLstbox.Location = new System.Drawing.Point(8, 100);
             this.keywordLstbox.Name = "keywordLstbox";
-            this.keywordLstbox.Size = new System.Drawing.Size(196, 121);
+            this.keywordLstbox.Size = new System.Drawing.Size(196, 173);
             this.keywordLstbox.TabIndex = 5;
             // 
             // linkGrp
@@ -294,8 +274,6 @@
         private System.Windows.Forms.ListBox keywordLstbox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox linkGrp;
-        private System.Windows.Forms.Label searchlbl;
-        private System.Windows.Forms.TextBox txtKeywordSearch;
         private System.Windows.Forms.Label linkLbl;
         private System.Windows.Forms.TextBox linkSearchTxt;
         private System.Windows.Forms.Button deleteSubredditBtn;
