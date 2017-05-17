@@ -55,11 +55,10 @@ namespace ProjectArgus
 
         private void ReopenForm()
         {
-            this.Show();
-            //if (!this.Visible)
-            //{
-
-            //}
+            if (!this.Visible)
+            {
+                this.Show();
+            }
             //Update form information
         }
         private void PopupBox_Resize(object sender, EventArgs e)

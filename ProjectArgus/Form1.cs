@@ -19,31 +19,12 @@ namespace ProjectArgus
         private Core core = new Core();
         private Analyzer analyzer = Analyzer.Instance;
         private KeywordManager keywordMgr = KeywordManager.Instance;
-        private PopupBox popBox;
         public Form1()
         {
-            InitializeComponent();         
-            Thread popBoxThread = new Thread(new ThreadStart(InitPopbox));
-            popBoxThread.Start();
-            analyzer.Subscribe(this);            
+            InitializeComponent();
+            analyzer.Subscribe(this);
             core.Start();
             RefreshLists();
-        }
-        private void CreateAndShowForm()
-        {
-            popBox = new PopupBox();
-            analyzer.Subscribe(popBox);
-            popBox.ShowDialog();
-        }
-        private void InitPopbox()
-        {
-            if (InvokeRequired)
-            {
-                this.Invoke(new Action(() => CreateAndShowForm()));
-                
-                return;
-            }
-            CreateAndShowForm();
         }
         public void OnCompleted()
         {
@@ -57,13 +38,20 @@ namespace ProjectArgus
 
         public void OnNext(object value)
         {
+            var data = (List<ArgusChild>)value;
             // Refresh GUI on new result from analyzer.
-            RefreshResultList((List<ArgusChild>)value);
-            // Call popupDialog and show latest results.
-            //popBox.DisplayResults((List<ArgusChild>)value);
+            RefreshResultList(data);
+
+            ShowBalloonTip(data.Count);
         }
-
-
+        private void ShowBalloonTip(int nrOfPosts)
+        {
+            if (!this.Visible)
+            {
+                string formattedStr = nrOfPosts + " new posts found.";
+                notifyIcon1.ShowBalloonTip(2000, "New Argus find!", formattedStr, ToolTipIcon.None);
+            }
+        }
         private void RefreshResultList(List<ArgusChild> input)
         {
             linkLstview.BeginInvoke(new Action(() =>
@@ -82,7 +70,6 @@ namespace ProjectArgus
                 }
             }));
         }
-
         private DateTime FromUnixTime(double unixTime)
         {
             var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -185,7 +172,13 @@ namespace ProjectArgus
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
-            this.Show();
+            //this.Show();
+            this.Visible = true;
+        }
+
+        private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
+        {
+            this.Visible = true;
         }
     }
 }
