@@ -49,7 +49,7 @@ namespace ProjectArgus
             if (!this.Visible)
             {
                 string formattedStr = nrOfPosts + " new posts found.";
-                notifyIcon1.ShowBalloonTip(2000, "New Argus find!", formattedStr, ToolTipIcon.None);
+                notifyIcon1.ShowBalloonTip(2000, "New Argus data!", formattedStr, ToolTipIcon.None);
             }
         }
         private void RefreshResultList(List<ArgusChild> input)
