@@ -9,16 +9,18 @@ using System.Threading.Tasks;
 
 namespace ArgusCore.Gatherers
 {
-    public abstract class Gatherer : UtilFacade
+    public abstract class Gatherer
     {
         private System.Threading.Timer timer;
         public Gatherer()
         {
         }
+        // This method is run by the timer, and is abstract
+        // so that in the future this class can be used to gather
         public abstract void RunStrategy();
+        // Executes RunStrategy method then waits specified amount of time, then repeats.
         public void Start(int sec)
-        {
-            // Start timer
+        {        
             if (timer == null)
             {
                 timer = new System.Threading.Timer(
@@ -28,11 +30,12 @@ namespace ArgusCore.Gatherers
                    TimeSpan.FromSeconds(sec));
             }
         }
+        // Stops the timer.
         public void Stop()
-        {
-            // Stop timer
+        {           
             timer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
         }
+        // Generic json serialization input is a POCO that is then converted to a json text.
         public string SerializeJson<T>(T obj)
         {
             using (var ms = new MemoryStream())
@@ -42,6 +45,7 @@ namespace ArgusCore.Gatherers
                 return Encoding.UTF8.GetString(ms.ToArray());
             }
         }
+        // Generic json deserialization input is a json formatted string and output is the specified object.
         public T DeserializeJson<T>(string json)
         {
             using (MemoryStream ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))

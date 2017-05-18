@@ -16,6 +16,7 @@ namespace ArgusCore.Gatherers.Utils
         public WebHandler()
         {
         }
+        // Downloads url to a string and returns it.
         public string DownloadString(string url)
         {
             string data = "";
@@ -41,6 +42,8 @@ namespace ArgusCore.Gatherers.Utils
                         var resp = (HttpWebResponse)ex.Response;
                         if (resp.StatusCode == HttpStatusCode.NotFound)
                         {
+                            // If a 404 error is caught. 
+                            // The retry counter is increased and retries the download after 15 seconds.
                             if (tryCount < maxTryCount)
                             {
                                 tryCount = tryCount + 1;
@@ -49,6 +52,7 @@ namespace ArgusCore.Gatherers.Utils
                             }
                             else if (tryCount >= maxTryCount)
                             {
+                                // If the max retries have been exceeded a WebException is thrown.
                                 tryCount = 0;
                                 throw new WebException();
                             }

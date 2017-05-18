@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArgusCore
 {
+    // Implements the observeable pattern so it can send results to the GUI.
     public class Analyzer : IObservable<Object>
     {
         private List<IObserver<Object>> observers = new List<IObserver<Object>>();
@@ -25,13 +26,6 @@ namespace ArgusCore
             childrenFound = new List<ArgusChild>();
             keywordMgr = KeywordManager.Instance;
         }
-
-        public ArgusChild GetChildByTitle(string title)
-        {
-            ArgusChild selectedChild = childrenFound.Where(x => x.data.title == title).FirstOrDefault();
-            return selectedChild;
-        }
-
         public static Analyzer Instance
         {
             get
@@ -39,13 +33,22 @@ namespace ArgusCore
                 return instance;
             }
         }
+        // Returns a subreddit post by input title.
+        public ArgusChild GetChildByTitle(string title)
+        {
+            ArgusChild selectedChild = childrenFound.Where(x => x.data.title == title).FirstOrDefault();
+            return selectedChild;
+        }
         public void EvaluateInterset(List<ArgusReddit> input)
         {
             List<ArgusChild> InterestPoints = new List<ArgusChild>();
+            // Run through each subreddit
             foreach (var subreddit in input)
             {
+                // Check every post in subreddit
                 foreach (var child in subreddit.data.children)
                 {
+                    // Evaluate post title
                     if (EvaluateString(child.data.title))
                     {
                         // Is it already in our list?
@@ -68,16 +71,21 @@ namespace ArgusCore
         {
             bool result = false;
 
+            // Run through each keyword in keyword database 
             foreach (var keyword in keywordMgr.ReadAll())
             {
+                // If the input string contains a keyword a boolean true is returned.
                 if (input.ToLower().Contains(keyword))
                 {
                     return true;
                 }
             }
+            // If it has come this far the input string had no keywords
+            // and is therefore not of interest.
             return result;
         }
 
+        // Runs through each observer and gives it the result object (a reddit post in our case).
         public void Result(Object e)
         {
             foreach (var observer in observers)
@@ -86,6 +94,7 @@ namespace ArgusCore
             }
         }
 
+        // Adds the observer to our list of observers if it's not already in the list.
         public IDisposable Subscribe(IObserver<object> observer)
         {
             if (!observers.Contains(observer))
@@ -95,6 +104,7 @@ namespace ArgusCore
             return new Unsubscriber<Object>(observers, observer);
         }
     }
+    // https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx
     internal class Unsubscriber<Object> : IDisposable
     {
         private List<IObserver<Object>> _observers;

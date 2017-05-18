@@ -11,8 +11,10 @@ namespace ArgusCore.Gatherers.Utils
 {
     public class DiscOps
     {
+        // Save input object to input file path.
         public void SaveToDisc<T>(object o, string filePath)
         {
+            // If file exists delete first to avoid corrupted data.
             DeleteFileIfExists(filePath);
             using (var IFileStream = new FileStream(filePath, FileMode.OpenOrCreate))
             {
@@ -21,6 +23,7 @@ namespace ArgusCore.Gatherers.Utils
                 IFileStream.Close();
             };
         }
+        // Load file from input file path to a specified object type.
         public T LoadFromDisc<T>(string file)
         {
             T obj = Activator.CreateInstance<T>();
@@ -38,6 +41,7 @@ namespace ArgusCore.Gatherers.Utils
                 return obj;
             }
         }
+        // Deletes file at input file path if it exists.
         private void DeleteFileIfExists(string filePath)
         {
             if (File.Exists(filePath))
@@ -45,6 +49,7 @@ namespace ArgusCore.Gatherers.Utils
                 File.Delete(filePath);
             }
         }
+        // Check if folder path exists, if not it is created.
         public void EnsureFolderExists(string folderPath)
         {
             bool exists = Directory.Exists(folderPath);

@@ -17,7 +17,8 @@ namespace ArgusCore
 
         public void Start()
         {
-            redditGatherer.Start(2 * 60);            
+            // Starts the reddit gatherer with a 5 minute inteval
+            redditGatherer.Start(5 * 60);            
         }
     }
 }
