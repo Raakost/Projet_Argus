@@ -11,9 +11,13 @@ namespace ArgusCore.Gatherers
 {
     public abstract class Gatherer
     {
+        public DiscOps discOps;
+        public WebHandler webHandler;
         private System.Threading.Timer timer;
         public Gatherer()
         {
+            discOps = new DiscOps();
+            webHandler = new WebHandler();
         }
         // This method is run by the timer, and is abstract
         // so that in the future this class can be used to gather

@@ -13,9 +13,6 @@ namespace ArgusCore.Gatherers.Reddit
         private string coreFolder = @"C:\Argus\";
         private string redditConfigFile = "";
 
-        private DiscOps discOps;
-        private WebHandler webHandler;
-
         private List<string> subReddits;
         private Analyzer analyzer = Analyzer.Instance;
 
@@ -24,11 +21,8 @@ namespace ArgusCore.Gatherers.Reddit
 
         public RedditGatherer()
         {
-            discOps = new DiscOps();
-            webHandler = new WebHandler();
-
             // Checks if config file exists, if it exists it is loaded from disc.
-            
+
             redditConfigFile = coreFolder + "SubReddits.json";
             if (File.Exists(redditConfigFile))
             {
@@ -68,12 +62,12 @@ namespace ArgusCore.Gatherers.Reddit
             foreach (var subreddit in subReddits)
             {
                 var featuredPosts = GetSubredditPosts(subreddit, false);
-                if(featuredPosts != null)
+                if (featuredPosts != null)
                 {
                     dataFound.Add(featuredPosts);
                 }
                 var latestPosts = GetSubredditPosts(subreddit, true);
-                if(latestPosts != null)
+                if (latestPosts != null)
                 {
                     dataFound.Add(latestPosts);
                 }
