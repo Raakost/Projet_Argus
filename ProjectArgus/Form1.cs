@@ -56,6 +56,7 @@ namespace ProjectArgus
         // Sets up list of results with input.
         private void RefreshResultList(List<ArgusChild> input)
         {
+            input = input.OrderByDescending(t => t.data.created).ToList();
             linkLstview.BeginInvoke(new Action(() =>
             {
                 foreach (var child in input)

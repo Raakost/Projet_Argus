@@ -19,7 +19,6 @@ namespace ArgusCore
 
         static Analyzer()
         {
-
         }
         private Analyzer()
         {

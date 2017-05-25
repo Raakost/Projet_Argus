@@ -42,8 +42,6 @@
             this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.subreddit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.linkLbl = new System.Windows.Forms.Label();
-            this.linkSearchTxt = new System.Windows.Forms.TextBox();
             this.deleteSubredditBtn = new System.Windows.Forms.Button();
             this.txtSubredditInput = new System.Windows.Forms.TextBox();
             this.addSubredditbtn = new System.Windows.Forms.Button();
@@ -117,8 +115,6 @@
             // linkGrp
             // 
             this.linkGrp.Controls.Add(this.linkLstview);
-            this.linkGrp.Controls.Add(this.linkLbl);
-            this.linkGrp.Controls.Add(this.linkSearchTxt);
             this.linkGrp.Location = new System.Drawing.Point(234, 12);
             this.linkGrp.Name = "linkGrp";
             this.linkGrp.Size = new System.Drawing.Size(760, 516);
@@ -134,10 +130,10 @@
             this.title,
             this.date,
             this.subreddit});
-            this.linkLstview.Location = new System.Drawing.Point(7, 73);
+            this.linkLstview.Location = new System.Drawing.Point(7, 19);
             this.linkLstview.MultiSelect = false;
             this.linkLstview.Name = "linkLstview";
-            this.linkLstview.Size = new System.Drawing.Size(747, 431);
+            this.linkLstview.Size = new System.Drawing.Size(747, 485);
             this.linkLstview.TabIndex = 12;
             this.linkLstview.UseCompatibleStateImageBehavior = false;
             this.linkLstview.View = System.Windows.Forms.View.Details;
@@ -157,22 +153,6 @@
             // 
             this.subreddit.Text = "Subreddit";
             this.subreddit.Width = 200;
-            // 
-            // linkLbl
-            // 
-            this.linkLbl.AutoSize = true;
-            this.linkLbl.Location = new System.Drawing.Point(10, 28);
-            this.linkLbl.Name = "linkLbl";
-            this.linkLbl.Size = new System.Drawing.Size(79, 13);
-            this.linkLbl.TabIndex = 3;
-            this.linkLbl.Text = "Search in links:";
-            // 
-            // linkSearchTxt
-            // 
-            this.linkSearchTxt.Location = new System.Drawing.Point(7, 44);
-            this.linkSearchTxt.Name = "linkSearchTxt";
-            this.linkSearchTxt.Size = new System.Drawing.Size(196, 20);
-            this.linkSearchTxt.TabIndex = 10;
             // 
             // deleteSubredditBtn
             // 
@@ -258,7 +238,6 @@
             this.adminGrp.ResumeLayout(false);
             this.adminGrp.PerformLayout();
             this.linkGrp.ResumeLayout(false);
-            this.linkGrp.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -275,8 +254,6 @@
         private System.Windows.Forms.ListBox keywordLstbox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox linkGrp;
-        private System.Windows.Forms.Label linkLbl;
-        private System.Windows.Forms.TextBox linkSearchTxt;
         private System.Windows.Forms.Button deleteSubredditBtn;
         private System.Windows.Forms.TextBox txtSubredditInput;
         private System.Windows.Forms.Button addSubredditbtn;
